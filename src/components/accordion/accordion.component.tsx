@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { List } from 'react-native-paper';
-import {styles} from "./list-item.style"
+import {styles} from "./accordion.style"
 
 interface ListItemProps{
     name: string;
 }
 
-export const ListItem = (props: ListItemProps) => {
+export const Accordion = (props: ListItemProps) => {
   return (
       <List.Accordion
         style={styles.items}
