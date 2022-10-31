@@ -8,7 +8,7 @@ import {styles} from "./monitores.style"
 
 export const MonitoresPage = () => {
     return (
-        <View>
+        <View style={styles.container}>
             <Header title={'Monitorando Monitor'} />
             <Divider />
             <Search placeholder={'Buscar monitor'} />

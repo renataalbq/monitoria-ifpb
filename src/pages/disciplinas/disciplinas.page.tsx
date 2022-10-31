@@ -7,7 +7,7 @@ import {styles} from "./disciplinas.style"
 
 export const DisciplinasPage = () => {
     return (
-        <View>
+        <View style={styles.container}>
             <Header title={'Monitorando Monitor'} />
             <Divider />
             <Search placeholder={'Buscar disciplinas'} />
