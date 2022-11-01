@@ -1,23 +1,22 @@
 import React from "react"
 import { Header } from "../../components/header/header.component"
-import {Accordion} from "../../components/accordion/accordion.component"
 import {Search} from "../../components/search/search.component"
-import { Divider } from 'react-native-paper';
+import { Divider, List } from 'react-native-paper';
 import { View } from "react-native";
-import {styles} from "./monitores.style"
+import {styles} from "./disciplinas.style"
 
-export const MonitoresPage = () => {
+export const DisciplinasPage = () => {
     return (
         <View style={styles.container}>
             <Header title={'Monitorando Monitor'} />
             <Divider />
-            <Search placeholder={'Buscar monitor'} />
+            <Search placeholder={'Buscar disciplinas'} />
             <View style={styles.list}>
-                <Accordion name={"Aluno 1"} />
+                <List.Item title="Estrutura de dados" />
                 <Divider />
-                <Accordion name={"Aluno 2"} />
+                <List.Item title="Análise e Projeto de Sistemas" />
                 <Divider />
-                <Accordion name={"Aluno 3"} />
+                <List.Item title="Programação para Web 1" />
                 <Divider />
             </View>
         </View>
