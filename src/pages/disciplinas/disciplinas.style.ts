@@ -7,4 +7,9 @@ export const styles = StyleSheet.create({
     list: {
         paddingVertical: 24,
     },
+    item: {
+        paddingBottom: 10,
+        paddingTop: 10,
+        marginLeft: 24,
+    }
 });
