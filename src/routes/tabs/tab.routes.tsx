@@ -19,10 +19,10 @@ export const TabRoutes = () => {
             borderTopLeftRadius: 20,
             borderTopRightRadius: 20,
             position: 'absolute',
-            bottom: 10,
-            paddingBottom: 10,
-            marginHorizontal: 5,
-            backgroundColor: '#f4f4f4',
+            bottom: 2,
+            paddingBottom: 5,
+            marginHorizontal: 1,
+            backgroundColor: '#e6e9fb',
           },
           tabBarShowLabel: false,
         }}>
@@ -35,7 +35,7 @@ export const TabRoutes = () => {
                 name="home"
                 size={25}
                 color={
-                  focused ? '#7303af' : '#4f4f4f'
+                  focused ? '#001a9b' : '#8c9efa'
                 }
               />
             ),
@@ -50,7 +50,7 @@ export const TabRoutes = () => {
                 name="person-search"
                 size={25}
                 color={
-                  focused ? '#7303af' : '#4f4f4f'
+                  focused ? '#001a9b' : '#8c9efa'
                 }
               />
             ),
@@ -65,7 +65,7 @@ export const TabRoutes = () => {
                 name="library-books"
                 size={25}
                 color={
-                  focused ? '#7303af' : '#4f4f4f'
+                  focused ? '#001a9b' : '#8c9efa'
                 }
               />
             ),
