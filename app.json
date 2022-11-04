@@ -24,7 +24,6 @@
     },
     "android": {
       "package": "monitor-ifpb-front", 
-      "versionVode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
