@@ -4,6 +4,7 @@ import {styles} from "./accordion.style"
 
 interface ListItemProps{
     name: string;
+    onTapItem: () => void;
 }
 
 export const Accordion = (props: ListItemProps) => {
@@ -12,8 +13,8 @@ export const Accordion = (props: ListItemProps) => {
         style={styles.items}
         title={props.name}
         left={props => <List.Icon {...props} icon="circle" />}>
-        <List.Item title="Horários" onPress={() => {}} />
-        <List.Item title="Contatos" onPress={() => {}} />
+        <List.Item title="Horários" onPress={() => {props.onTapItem()}} />
+        <List.Item title="Contatos" onPress={() => {props.onTapItem()}} />
       </List.Accordion>
   );
 };

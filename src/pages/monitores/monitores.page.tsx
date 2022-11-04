@@ -3,8 +3,9 @@ import { Header } from "../../components/header/header.component"
 import {Accordion} from "../../components/accordion/accordion.component"
 import {Search} from "../../components/search/search.component"
 import { Divider } from 'react-native-paper';
-import { FlatList, View, Text } from "react-native";
+import { FlatList, View } from "react-native";
 import {styles} from "./monitores.style"
+import { useNavigation } from "@react-navigation/native";
 
 export const MonitoresPage = () => {
     
@@ -13,6 +14,12 @@ export const MonitoresPage = () => {
 
     const handleSearch = (value: string) => {
         setSearch(value);
+    };
+
+    const navigation = useNavigation();
+
+    const handleInfoMonitor = (item: any) => {
+      navigation.navigate('InfoMonitorPage', {nome: item.name, contato: item.contato, email: item.email});
     };
 
     useEffect(() => {
@@ -25,7 +32,7 @@ export const MonitoresPage = () => {
 
       const renderItem = ({ item }: any) => (
         <View>
-          <Accordion name={item.name}  />
+          <Accordion name={item.name} onTapItem={() => handleInfoMonitor(item)}  />
           <Divider />
         </View>
       );
