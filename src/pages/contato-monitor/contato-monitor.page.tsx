@@ -1,19 +1,19 @@
-import { Text, View, SafeAreaView, Button} from 'react-native';
+import { Text, View, SafeAreaView, Image} from 'react-native';
 import React from 'react';
 import { IconButton, List } from 'react-native-paper';
-import { styles } from './info-monitor.style';
+import { styles } from './contato-monitor.style';
 import { useNavigation, useRoute } from '@react-navigation/native';
+import AvatarMonitor from '../../../assets/avatar.jpg';
 
-export const InfoMonitorPage = () => {
+
+export const ContatoMonitorPage = () => {
     const navigation = useNavigation();
     const route = useRoute();
+    
     return (
       <SafeAreaView style={styles.container}>
-        <View>
-          <IconButton style={styles.icon} onPress={() => navigation.goBack()} icon={'chevron-left'}/>
-        </View>
         <View style={styles.list}>
-            <View style={styles.image}></View>
+            <Image style={styles.image} source={AvatarMonitor} />
 
             <View><Text style={styles.text}>{route.params?.nome}</Text></View>
             <List.Item title="Chats" onPress={() => {}} />

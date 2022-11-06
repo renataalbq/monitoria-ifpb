@@ -10,7 +10,7 @@ import { useNavigation } from "@react-navigation/native";
 export const MonitoresPage = () => {
     
     const [monitores, setMonitores] = useState();
-    const [search, setSearch] = React.useState<string>('');
+    const [search, setSearch] = useState<string>('');
 
     const handleSearch = (value: string) => {
         setSearch(value);
@@ -18,12 +18,16 @@ export const MonitoresPage = () => {
 
     const navigation = useNavigation();
 
-    const handleInfoMonitor = (item: any) => {
-      navigation.navigate('InfoMonitorPage', {nome: item.name, contato: item.contato, email: item.email});
+    const handleContatoMonitor = (item: any) => {
+      navigation.navigate('ContatoMonitorPage', {nome: item.nome});
+    };
+
+    const handleHorariosMonitor = (item: any) => {
+      navigation.navigate('MonitoriaPage', {nome: item.nome});
     };
 
     useEffect(() => {
-        fetch(`https://fake-server-monitor.herokuapp.com/monitores?name_like=${search}`)
+        fetch('https://aw-monitorando-monitor.herokuapp.com/alunos')
         .then(response => response.json())
         .then((data) => {
           setMonitores(data)
@@ -32,21 +36,21 @@ export const MonitoresPage = () => {
 
       const renderItem = ({ item }: any) => (
         <View>
-          <Accordion name={item.name} onTapItem={() => handleInfoMonitor(item)}  />
+          <Accordion name={item.nome} disciplina={item.nomeCurso} onTapContatos={() => handleContatoMonitor(item)} onTapHorarios={() => handleHorariosMonitor(item)}  />
           <Divider />
         </View>
       );
       
     return (
         <View style={styles.container}>
-            <Header title={'Monitorando Monitor'} />
+            <Header title={'Monitores'} />
             <Divider />
             <Search placeholder={'Buscar monitor'} />
             <View style={styles.list}>
                 <FlatList 
                     data={monitores}
                     renderItem={renderItem}
-                    keyExtractor={(item) => item.id}
+                    keyExtractor={(item) => item.nome}
 
                 />
             </View>

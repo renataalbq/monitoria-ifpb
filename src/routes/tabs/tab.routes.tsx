@@ -9,7 +9,6 @@ const Tab = createBottomTabNavigator();
 export const TabRoutes = () => {
 
   return (
-    <>
       <Tab.Navigator
         screenOptions={{
           headerShown: false,
@@ -18,7 +17,6 @@ export const TabRoutes = () => {
             height: 50,
             borderTopLeftRadius: 20,
             borderTopRightRadius: 20,
-            position: 'absolute',
             bottom: 2,
             paddingBottom: 5,
             marginHorizontal: 1,
@@ -72,6 +70,5 @@ export const TabRoutes = () => {
           }}
         />
       </Tab.Navigator>
-    </>
   );
 };

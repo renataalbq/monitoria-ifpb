@@ -6,18 +6,10 @@ export const styles = StyleSheet.create({
     },
     list: {
         paddingVertical: 24,
+        paddingHorizontal: 20
     },
-    row: {
-        flexDirection: 'row',
-        justifyContent: 'space-between'
-    },
-    item: {
-        paddingBottom: 10,
-        paddingTop: 10,
-        marginLeft: 24,
-    },
-    text: {
+    text:{
         fontSize: 18,
-        flexWrap: 'wrap',
+        paddingBottom: 6,
     }
 });

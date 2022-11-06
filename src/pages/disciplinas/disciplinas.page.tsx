@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react"
 import { Header } from "../../components/header/header.component"
 import {Search} from "../../components/search/search.component"
-import { Divider, List, Text } from 'react-native-paper';
+import { Divider, Text } from 'react-native-paper';
 import { FlatList, TouchableOpacity, View } from "react-native";
 import {styles} from "./disciplinas.style"
-import { ScrollView } from "react-native-gesture-handler";
+import { useNavigation } from "@react-navigation/native";
 
 export const DisciplinasPage = () => {
     const [disciplinas, setDisciplinas] = useState();
@@ -15,34 +15,41 @@ export const DisciplinasPage = () => {
     };
 
     useEffect(() => {
-        fetch(`https://fake-server-monitor.herokuapp.com/disciplinas?titulo_like=${search}`)
+        fetch('https://aw-monitorando-monitor.herokuapp.com/disciplinas?limit=10')
         .then(response => response.json())
         .then((data) => {
           setDisciplinas(data)
         })
       }, []);
 
+      const navigation = useNavigation();
+
+      const handleInfoDisciplina = (item: any) => {
+        navigation.navigate('InfoDisciplinaPage', {nome: item.nome, curso: item.curso, professor: item.professor});
+      };
+
       const renderItem = ({ item }: any) => (
-        <View>
+        <TouchableOpacity style={styles.row} onPress={() => handleInfoDisciplina(item)}>
           <View style={styles.item}>
-            <Text>{item.titulo} - {item.curso}</Text>
+            <Text style={styles.text}>{item.nome}</Text>
+            <Text style={styles.text}>{item.curso}</Text>
+
           </View>
           <Divider />
-        </View>
+        </TouchableOpacity>
       );
 
-
-    return (
+      return (
         <View style={styles.container}>
-            <Header title={'Monitorando Monitor'} />
+            <Header title={'Disciplinas'} />
             <Divider />
             <Search placeholder={'Buscar disciplinas'}  />
             <View style={styles.list}>
                 <FlatList 
                     data={disciplinas}
                     renderItem={renderItem}
-                    keyExtractor={(item) => item.id}
-
+                    keyExtractor={(item) => item.nome}
+                    ItemSeparatorComponent={() => <Divider />}
                 />
             </View>
         </View>
