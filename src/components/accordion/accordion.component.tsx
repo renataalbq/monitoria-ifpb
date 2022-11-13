@@ -9,7 +9,9 @@ interface ListItemProps{
     name: string;
     disciplina?: string;
     onTapContatos: () => void;
-    onTapHorarios: () => void
+    onTapHorarios: () => void;
+    avatar: string;
+    curso: string;
 }
 
 export const Accordion = (props: ListItemProps) => {
@@ -17,15 +19,16 @@ export const Accordion = (props: ListItemProps) => {
       <List.Accordion
         style={styles.items}
         title={props.name}
-        left={props => <Image style={styles.image} {...props} source={AvatarMonitor} />}>
-        {props.disciplina && <Text>Curso: {props.disciplina} </Text>}
+        right={propsRight => <View style={{backgroundColor: "aquamarine", width: 50, height: 20, borderRadius: 10, marginRight: 10}}><Text style={{textAlign: "center"}}>{props.curso}</Text></View>}
+        left={propsLeft => <Image style={styles.image} {...propsLeft} source={{uri: props.avatar}} />}>
+        {props.disciplina && <Text>Curso: {props.disciplina} </Text>}        
         <TouchableOpacity  onPress={() => {props.onTapHorarios()}}>
           <View style={styles.row}>
             <Text style={styles.textButton}>Horários</Text>
             <MaterialIcons
                   name="chevron-right"
                   size={24}
-                  col3or={ '#001a9b'}
+                  color={ '#001a9b'}
                 />
           </View>
         </TouchableOpacity>

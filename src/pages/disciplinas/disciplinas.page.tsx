@@ -25,14 +25,14 @@ export const DisciplinasPage = () => {
       const navigation = useNavigation();
 
       const handleInfoDisciplina = (item: any) => {
-        navigation.navigate('InfoDisciplinaPage', {nome: item.nome, curso: item.curso, professor: item.professor});
+        navigation.navigate('InfoDisciplinaPage', {nome: item.nome, curso: item.abrevCurso, professor: item.professor});
       };
 
       const renderItem = ({ item }: any) => (
         <TouchableOpacity style={styles.row} onPress={() => handleInfoDisciplina(item)}>
           <View style={styles.item}>
             <Text style={styles.text}>{item.nome}</Text>
-            <Text style={styles.text}>{item.curso}</Text>
+            <Text style={styles.text}>{item.abrevCurso}</Text>
 
           </View>
           <Divider />
