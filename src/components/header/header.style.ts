@@ -6,5 +6,8 @@ export const styles = StyleSheet.create({
         fontSize: 20,
         paddingVertical: 18,
         marginTop: 34
-    }
+    },
+    container: {
+        backgroundColor: '#FFFFFF'
+    },
 });

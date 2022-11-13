@@ -14,18 +14,14 @@ export const TabRoutes = () => {
           headerShown: false,
           tabBarHideOnKeyboard: true,
           tabBarStyle: {
-            height: 50,
-            borderTopLeftRadius: 20,
-            borderTopRightRadius: 20,
-            bottom: 2,
-            paddingBottom: 5,
-            marginHorizontal: 1,
-            backgroundColor: '#e6e9fb',
+            height: 47,
+            paddingBottom: 1,
+            backgroundColor: '#07B361',
           },
           tabBarShowLabel: false,
         }}>
         <Tab.Screen
-          name="Home"
+          name="HomeScreen"
           component={HomePage}
           options={{
             tabBarIcon: ({focused}) => (
@@ -33,7 +29,7 @@ export const TabRoutes = () => {
                 name="home"
                 size={25}
                 color={
-                  focused ? '#001a9b' : '#8c9efa'
+                  focused ? '#ff0000' : '#fdfdfd'
                 }
               />
             ),
@@ -48,7 +44,7 @@ export const TabRoutes = () => {
                 name="person-search"
                 size={25}
                 color={
-                  focused ? '#001a9b' : '#8c9efa'
+                  focused ? '#ff0000' : '#fdfdfd'
                 }
               />
             ),
@@ -63,7 +59,7 @@ export const TabRoutes = () => {
                 name="library-books"
                 size={25}
                 color={
-                  focused ? '#001a9b' : '#8c9efa'
+                  focused ? '#ff0000' : '#fdfdfd'
                 }
               />
             ),
