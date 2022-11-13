@@ -15,7 +15,7 @@ export const DisciplinasPage = () => {
     };
 
     useEffect(() => {
-        fetch('https://aw-monitorando-monitor.herokuapp.com/disciplinas?limit=10')
+        fetch('https://aw-monitorando-monitor.herokuapp.com/disciplinas')
         .then(response => response.json())
         .then((data) => {
           setDisciplinas(data)
