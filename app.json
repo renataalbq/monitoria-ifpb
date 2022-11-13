@@ -23,7 +23,7 @@
       "supportsTablet": true
     },
     "android": {
-      "package": "monitor-ifpb-front", 
+      "package": "com.ifpb.monitorandomonitor",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
@@ -31,6 +31,11 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "0a8f1f8d-8091-4ad8-9835-1fc59ef18978"
+      }
     }
   }
 }

@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { styles } from './info-disciplina.style';
 import { useNavigation, useRoute } from '@react-navigation/native';
 
+
+
 export const InfoDisciplinaPage = () => {
     const route = useRoute();
     const [monitoria, setMonitoria] = useState();

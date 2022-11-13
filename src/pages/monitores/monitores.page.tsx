@@ -11,6 +11,7 @@ export const MonitoresPage = () => {
     
     const [monitores, setMonitores] = useState();
     const [search, setSearch] = useState<string>('');
+    console.log(monitores)
 
     const handleSearch = (value: string) => {
         setSearch(value);
@@ -19,7 +20,7 @@ export const MonitoresPage = () => {
     const navigation = useNavigation();
 
     const handleContatoMonitor = (item: any) => {
-      navigation.navigate('ContatoMonitorPage', {nome: item.nome});
+      navigation.navigate('ContatoMonitorPage', {nome: item.nome, contato: item.contato, img: item.urlImage});
     };
 
     const handleHorariosMonitor = (item: any) => {
@@ -36,7 +37,7 @@ export const MonitoresPage = () => {
 
       const renderItem = ({ item }: any) => (
         <View>
-          <Accordion name={item.nome} disciplina={item.nomeCurso} onTapContatos={() => handleContatoMonitor(item)} onTapHorarios={() => handleHorariosMonitor(item)}  />
+          <Accordion curso={item.abrevCurso} avatar={item.urlImage} name={item.nome} disciplina={item.nomeCurso} onTapContatos={() => handleContatoMonitor(item)} onTapHorarios={() => handleHorariosMonitor(item)}  />
           <Divider />
         </View>
       );
