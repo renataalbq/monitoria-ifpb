@@ -5,6 +5,7 @@ import { DisciplinasPage } from '../../pages/disciplinas';
 import { ContatoMonitorPage } from '../../pages/contato-monitor/contato-monitor.page';
 import { MonitoriaPage } from '../../pages/monitoria/monitoria.page';
 import { InfoDisciplinaPage } from '../../pages/info-disciplina/info-disciplina.page';
+import { LoginPage } from '../../pages/login/login.page';
 
 const Stack = createStackNavigator();
 
@@ -15,6 +16,7 @@ export const StackAppRoutes = () => {
             gestureEnabled: true,
             headerShown: true,
         }}>
+        <Stack.Screen name="Login" component={LoginPage} options={{headerShown: false}} />
         <Stack.Screen name="Home" component={TabRoutes} options={{headerShown: false}} />
         <Stack.Screen name="Monitores" component={MonitoresPage} options={{headerShown: false}} />
         <Stack.Screen name="Disciplinas" component={DisciplinasPage} options={{headerShown: false}} />
