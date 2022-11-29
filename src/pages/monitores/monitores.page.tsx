@@ -11,7 +11,6 @@ export const MonitoresPage = () => {
     
     const [monitores, setMonitores] = useState();
     const [search, setSearch] = useState<string>('');
-    console.log(monitores)
 
     const handleSearch = (value: string) => {
         setSearch(value);
