@@ -3,8 +3,11 @@ import { Header } from "../../components/header/header.component"
 import { Divider } from 'react-native-paper';
 import { View, Text } from "react-native";
 import {styles} from "./home.style"
+import { useRoute } from "@react-navigation/native";
 
 export const HomePage = () => {
+    const route = useRoute();
+
     return (
         <View style={styles.container}>
             <View>
@@ -13,7 +16,7 @@ export const HomePage = () => {
             </View>
 
             <View style={styles.content}>
-                <Text style={styles.hello}>Olá, Aluno!</Text>
+                <Text style={styles.hello}>Olá, {route.params?.nome}!</Text>
                 <Text style={styles.welcome}>Bem vindo ao app de monitoria do IFPB!</Text>
                 <Text style={styles.welcome}>Aqui você encontra todos os monitores do instituto num lugar só. </Text>
             </View>

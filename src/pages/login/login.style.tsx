@@ -8,6 +8,7 @@ export const styles = StyleSheet.create({
     logo: {
         width: 100,
         height: 100,
+        tintColor: "#4257c0",
     },
     button: {
         backgroundColor: "#4257c0",

@@ -1,6 +1,6 @@
 import { useNavigation } from "@react-navigation/native";
 import React, { useEffect, useState } from "react"
-import { Button, View, Text, Image, TouchableOpacity } from "react-native";
+import { View, Text, Image, TouchableOpacity, Alert } from "react-native";
 import { InputComponent } from "../../components/input/input.component";
 import {styles} from "./login.style";
 
@@ -19,8 +19,12 @@ export function LoginPage() {
 
     const navigation = useNavigation();
 
-    const handleHomePage = (item: any) => {
-        navigation.navigate('Home', {nome: item.name});
+    const handleHomePage = async (item: any) => {
+        if (email.match(/@academico.ifpb.edu.br/g) && password){
+            navigation.navigate('Home', {nome: item.name});
+        } else {
+            return Alert.alert('Verifique os campos.')
+        }
     };
       
     return (
@@ -29,7 +33,6 @@ export function LoginPage() {
             <View style={styles.content}>
                 <InputComponent placeholder="Email" value={email} onChangeText={setEmail}/>
                 <InputComponent placeholder="Senha" value={password} onChangeText={setPassword} />
-                {/* {users.map(user => {user.email === email && user.password === password})} */}
                 <TouchableOpacity style={styles.button} onPress={() => handleHomePage(users)}>
                     <Text style={styles.buttonText}>Entrar</Text>
                 </TouchableOpacity>
