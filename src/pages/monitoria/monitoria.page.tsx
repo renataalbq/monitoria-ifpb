@@ -3,10 +3,6 @@ import React, { useEffect, useState } from 'react';
 import { styles } from './monitoria.style';
 import { useRoute } from '@react-navigation/native';
 
-interface MonitoriaProps {
-  monitorias: Monitoria;
-}
-
 interface Monitoria {
   alunos: Array<string>;
   disciplina: string;
