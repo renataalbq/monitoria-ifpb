@@ -10,19 +10,11 @@ export function LoginPage() {
     const [password, setPassword] = useState('');
     const [users, setUsers] = useState();
 
-    useEffect(() => {
-        fetch('https://fake-server-monitor.herokuapp.com/login')
-        .then(response => response.json())
-        .then((data) => {
-          setUsers(data)
-        })
-      }, []);
-
     const navigation = useNavigation();
 
     const handleHomePage = async (item: any) => {
         if (email.match(/@academico.ifpb.edu.br/g) && password){
-            navigation.navigate('Home', {nome: item.name});
+            navigation.navigate('Home');
         } else {
             return Alert.alert('Verifique os campos.')
         }

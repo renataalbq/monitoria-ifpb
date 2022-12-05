@@ -4,11 +4,12 @@ import { styles } from './monitoria.style';
 import { useRoute } from '@react-navigation/native';
 
 interface Monitoria {
-  alunos: Array<string>;
+  nome: string;
   disciplina: string;
   horario: string;
   sala: string;
   diasDaSemana: string;
+  matricula: string;
 }
 
 export const MonitoriaPage = () => {
@@ -16,31 +17,27 @@ export const MonitoriaPage = () => {
     const [monitoria, setMonitoria] = useState<Monitoria[]>();
 
     useEffect(() => {
-      fetch('https://aw-monitorando-monitor.herokuapp.com/monitorias')
+      fetch('https://backend-monitor-production.up.railway.app/alunos')
       .then(response => response.json())
       .then((data) => {
         setMonitoria(data)
       })
     }, []);
 
-    const renderItem = ({ item }: any) => (
-      <View>
-        {item.alunos.map((aluno: string) => 
-          {if (aluno === route.params?.nome) {
-            {console.log(aluno, item?.horario)}
-            <Text style={styles.text}>Horário: {item?.horario}</Text>
-          }} 
-        )}
-      </View>
-    );
-
     return (
       <SafeAreaView style={styles.container}>
         <View style={styles.list}>
-        <FlatList 
-          data={monitoria}
-          renderItem={renderItem}
-          keyExtractor={(item) => item.disciplina} />
+        {monitoria?.map(monitor => (
+          monitor.nome === route.params?.nome ? (
+          <React.Fragment key={monitor.matricula}>
+            <Text style={styles.text}>{monitor?.nome}</Text>
+            <Text style={styles.text}>Disciplina: {monitor?.disciplina}</Text>
+            <Text style={styles.text}>Sala: {monitor?.sala}</Text>
+            <Text style={styles.text}>{monitor?.diasDaSemana}</Text>
+            <Text style={styles.text}>{monitor?.horario}</Text>
+          </React.Fragment>
+          ) : <></>
+        ))}
         </View>
 
       </SafeAreaView>
