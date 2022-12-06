@@ -1,10 +1,8 @@
 import { Text, View, SafeAreaView, Image, TouchableOpacity} from 'react-native';
 import React from 'react';
-import { IconButton, List } from 'react-native-paper';
 import { styles } from './contato-monitor.style';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { ExternalLinkUtils } from '../../utils/external-links.utils';
-import { MaterialIcons } from '@expo/vector-icons';
 import { ContactsComponent } from '../../components/contacts/contacts.component';
 
 export const ContatoMonitorPage = () => {

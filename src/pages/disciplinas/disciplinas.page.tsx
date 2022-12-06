@@ -32,10 +32,8 @@ export const DisciplinasPage = () => {
         <TouchableOpacity style={styles.row} onPress={() => handleInfoDisciplina(item)}>
           <View style={styles.item}>
             <Text style={styles.text}>{item.nome}</Text>
-            <Text style={styles.text}>{item.abrevCurso}</Text>
-
           </View>
-          <Divider />
+          <View style={styles.badge}><Text style={{textAlign: "center"}}>{item.abrevCurso}</Text></View>
         </TouchableOpacity>
       );
 
@@ -49,7 +47,6 @@ export const DisciplinasPage = () => {
                     data={disciplinas}
                     renderItem={renderItem}
                     keyExtractor={(item) => item.nome}
-                    ItemSeparatorComponent={() => <Divider />}
                 />
             </View>
         </View>

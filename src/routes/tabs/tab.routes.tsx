@@ -16,7 +16,7 @@ export const TabRoutes = () => {
           tabBarStyle: {
             height: 47,
             paddingBottom: 1,
-            backgroundColor: '#07B361',
+            backgroundColor: '#66a45c',
           },
           tabBarShowLabel: false,
         }}>
@@ -29,7 +29,7 @@ export const TabRoutes = () => {
                 name="home"
                 size={25}
                 color={
-                  focused ? '#ff0000' : '#fdfdfd'
+                  focused ? '#FAB246' : '#fdfdfd'
                 }
               />
             ),
@@ -44,7 +44,7 @@ export const TabRoutes = () => {
                 name="person-search"
                 size={25}
                 color={
-                  focused ? '#ff0000' : '#fdfdfd'
+                  focused ? '#FAB246' : '#fdfdfd'
                 }
               />
             ),
@@ -59,7 +59,7 @@ export const TabRoutes = () => {
                 name="library-books"
                 size={25}
                 color={
-                  focused ? '#ff0000' : '#fdfdfd'
+                  focused ? '#FAB246' : '#fdfdfd'
                 }
               />
             ),
