@@ -2,9 +2,10 @@ import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
     container: {
-        backgroundColor: "#FFF"
+        backgroundColor: "#FFFFFF"
     },
     list: {
+        backgroundColor: "#FFFFFF",
         paddingVertical: 24,
     },
 });

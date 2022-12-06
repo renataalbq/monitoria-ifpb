@@ -1,9 +1,11 @@
-import { Text, View, SafeAreaView, Image} from 'react-native';
+import { Text, View, SafeAreaView, Image, TouchableOpacity} from 'react-native';
 import React from 'react';
 import { IconButton, List } from 'react-native-paper';
 import { styles } from './contato-monitor.style';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { ExternalLinkUtils } from '../../utils/external-links.utils';
+import { MaterialIcons } from '@expo/vector-icons';
+import { ContactsComponent } from '../../components/contacts/contacts.component';
 
 export const ContatoMonitorPage = () => {
     const navigation = useNavigation();
@@ -23,14 +25,20 @@ export const ContatoMonitorPage = () => {
     
     return (
       <SafeAreaView style={styles.container}>
-        <View style={styles.list}>
+        <View style={styles.background}>
             <Image style={styles.image} source={{uri: route.params?.img}} />
+            <View style={styles.cursoBg}>
+              <Text style={styles.curso}>{route.params?.curso}</Text>
+            </View>
+            <Text style={styles.text}>{route.params?.nome}</Text>
+        </View>
+        <View style={styles.list}>
 
-            <View><Text style={styles.text}>{route.params?.nome}</Text></View>
-            <List.Item title="Chats" onPress={() => {}} />
-            <List.Item title="Telefone" onPress={() => handlePhoneTap(route.params?.contato)} />
-            <List.Item title="Whatsapp" onPress={() => handleWhatsappTap(route.params?.contato)} />
-            <List.Item title="Email" onPress={() => {}} />
+            <ContactsComponent contact={'Chats'} icon={'chat-bubble'} action={() => {}} />
+            <ContactsComponent contact={'Telefone'} icon={'phone'} action={() => handlePhoneTap(route.params?.contato)} />
+            <ContactsComponent contact={'Whatsapp'} icon={'phone'} action={() => handleWhatsappTap(route.params?.contato)} />
+            <ContactsComponent contact={'Email'} icon={'email'} action={() => handlePhoneTap(route.params?.contato)} />
+
         </View>
       </SafeAreaView>
     )

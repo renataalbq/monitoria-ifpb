@@ -2,7 +2,10 @@ import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
     items: {
-        backgroundColor: '#FFF',
+        backgroundColor: '#DBE8D6',
+        margin: 5,
+        borderRadius: 10,
+        padding: 10,
     },
     image: {
         width: 30,
@@ -13,7 +16,8 @@ export const styles = StyleSheet.create({
     row: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        marginRight: 18,
+        paddingRight: 18,
+        marginTop: 10,
     },
     textButton: {
         paddingVertical: 12,

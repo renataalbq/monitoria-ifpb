@@ -19,7 +19,7 @@ export const MonitoresPage = () => {
     const navigation = useNavigation();
 
     const handleContatoMonitor = (item: any) => {
-      navigation.navigate('ContatoMonitorPage', {nome: item.nome, contato: item.contato, img: item.urlImage});
+      navigation.navigate('ContatoMonitorPage', {nome: item.nome, contato: item.contato, img: item.urlImage, curso: item.abrevCurso});
     };
 
     const handleHorariosMonitor = (item: any) => {
@@ -35,9 +35,8 @@ export const MonitoresPage = () => {
       }, []);
 
       const renderItem = ({ item }: any) => (
-        <View>
+        <View style={styles.container}>
           <Accordion curso={item.abrevCurso} avatar={item.urlImage} name={item.nome} disciplina={item.nomeCurso} onTapContatos={() => handleContatoMonitor(item)} onTapHorarios={() => handleHorariosMonitor(item)}  />
-          <Divider />
         </View>
       );
       
