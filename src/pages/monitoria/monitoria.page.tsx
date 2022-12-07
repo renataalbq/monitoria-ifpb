@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { styles } from './monitoria.style';
 import { useRoute } from '@react-navigation/native';
 
-interface Monitoria {
+export interface Monitoria {
   nome: string;
   disciplina: string;
   horario: string;

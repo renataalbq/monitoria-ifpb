@@ -2,13 +2,14 @@ import { Text, View, SafeAreaView, Button} from 'react-native';
 import React, { useEffect, useState } from 'react';
 import { styles } from './info-disciplina.style';
 import { useNavigation, useRoute } from '@react-navigation/native';
+import { Monitoria } from '../monitoria/monitoria.page';
 
 export const InfoDisciplinaPage = () => {
     const route = useRoute();
-    const [monitoria, setMonitoria] = useState();
+    const [monitoria, setMonitoria] = useState<Monitoria[]>();
 
     useEffect(() => {
-      fetch('https://aw-monitorando-monitor.herokuapp.com/monitorias')
+      fetch('https://backend-monitor-production.up.railway.app/alunos')
       .then(response => response.json())
       .then((data) => {
         setMonitoria(data)
@@ -18,15 +19,39 @@ export const InfoDisciplinaPage = () => {
     
     return monitoria ? (
       <SafeAreaView style={styles.container}>
-        <View style={styles.list}>
-            <Text style={styles.text}>Curso: {route.params?.curso}</Text>
-            <Text style={styles.text}>Professor: {route.params?.professor}</Text>
-            {monitoria[0].alunos.map((item) => (
-                <Text style={styles.text}>Monitor: {item}</Text>
-
+        
+          <View style={styles.wrapper}>
+            <Text style={styles.textHeader}>{route.params?.nome} - {route.params?.curso}</Text>
+            <Text style={styles.textHeader}>{route.params?.professor} </Text>
+          </View>
+          <View style={styles.list}>
+            <Text style={styles.title}>Monitores: </Text>
+            {monitoria?.map((info, index) => (
+                info.disciplina === route.params?.nome ? (
+                <React.Fragment key={index}>
+                  <View style={styles.monitorWrapped}>
+                    <Text style={styles.text}>{info?.nome}</Text>
+                    <Text style={styles.text}>{info?.sala}</Text>
+                    <View style={styles.row}>
+                      <View style={styles.column}>
+                        <Text style={styles.text}>{info?.diasDaSemana[0]}</Text>
+                        <Text style={styles.text}>{info?.horario[0]}</Text>
+                      </View>
+                      <View style={styles.column}>
+                        <Text style={styles.text}>{info?.diasDaSemana[1]}</Text>
+                        <Text style={styles.text}>{info?.horario[1]}</Text>
+                      </View>
+                      {info?.diasDaSemana.length > 2 &&
+                        <View style={styles.column}>
+                          <Text style={styles.text}>{info?.diasDaSemana[2]}</Text>
+                          <Text style={styles.text}>{info?.horario[2]}</Text>
+                        </View>
+                      }
+                    </View>
+                  </View>
+              </React.Fragment>
+              ) : <></>
             ))}
-            <Text style={styles.text}>Horário da Monitoria: {monitoria[0].horario}</Text>
-            <Text style={styles.text}>Sala da Monitoria: {monitoria[0].sala}</Text>
 
         </View>
 
