@@ -33,7 +33,7 @@ export const MonitoresPage = () => {
       }, []);
 
       const searchFilterFunction = (text: string) => {
-        if (text) {
+        if (text != null) {
           const newData = monitores.filter(
             function (item: any) {
               const itemData = item.nome
@@ -43,7 +43,6 @@ export const MonitoresPage = () => {
               return itemData.indexOf(textData) > -1;
           });
           setFilteredData(newData);
-          console.log(newData)
           setMonitores(newData);
           setSearch(text);
         } else {
