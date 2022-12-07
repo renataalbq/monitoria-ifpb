@@ -13,7 +13,7 @@ export function LoginPage() {
     const navigation = useNavigation();
 
     const handleHomePage = async (item: any) => {
-        if (email.match(/@academico.ifpb.edu.br/g) && password){
+        if (email.match(/@academico.ifpb.edu.br/g) && password.length > 3){
             navigation.navigate('Home');
         } else {
             return Alert.alert('Verifique os campos.')

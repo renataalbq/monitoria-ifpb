@@ -1,20 +1,17 @@
-import React, { useState } from 'react';
-import { Searchbar } from 'react-native-paper';
+import React from 'react';
+import { TextInput, TextInputProps } from 'react-native';
 import {styles} from "./search.style"
 
-interface SearchProps {
-    placeholder: string;
-}
+type SearchProps = TextInputProps;
 
-export const Search = (props: SearchProps) => {
-    const [search, setSearch] = useState('')
+export const Search = ({
+  ...textInputProps
+}: SearchProps) => {
 
     return (
-      <Searchbar
-        placeholder={props.placeholder}
-        onChangeText={query => { setSearch(query); }}
-        value={search}
+      <TextInput {...textInputProps}
         style={styles.search}
+        underlineColorAndroid="transparent"
       />
     );
 }

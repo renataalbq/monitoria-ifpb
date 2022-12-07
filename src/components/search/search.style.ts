@@ -9,6 +9,8 @@ export const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: '#E4E4E4',
         borderStyle: 'solid',
-        backgroundColor: '#FAFAFA'
+        backgroundColor: '#FAFAFA',
+        height: 50,
+        paddingLeft: 20,
     }
 });

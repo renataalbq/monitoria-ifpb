@@ -3,7 +3,7 @@ import { Header } from "../../components/header/header.component"
 import {Accordion} from "../../components/accordion/accordion.component"
 import {Search} from "../../components/search/search.component"
 import { Divider } from 'react-native-paper';
-import { FlatList, View } from "react-native";
+import { FlatList, TextInput, View } from "react-native";
 import {styles} from "./monitores.style"
 import { useNavigation } from "@react-navigation/native";
 
@@ -11,10 +11,7 @@ export const MonitoresPage = () => {
     
     const [monitores, setMonitores] = useState();
     const [search, setSearch] = useState<string>('');
-
-    const handleSearch = (value: string) => {
-        setSearch(value);
-    };
+    const [filteredData, setFilteredData] = useState();
 
     const navigation = useNavigation();
 
@@ -27,12 +24,33 @@ export const MonitoresPage = () => {
     };
 
     useEffect(() => {
-        fetch('https://aw-monitorando-monitor.herokuapp.com/alunos')
+      fetch('https://aw-monitorando-monitor.herokuapp.com/alunos')
         .then(response => response.json())
         .then((data) => {
+          setFilteredData(data);
           setMonitores(data)
         })
       }, []);
+
+      const searchFilterFunction = (text: string) => {
+        if (text) {
+          const newData = monitores.filter(
+            function (item: any) {
+              const itemData = item.nome
+                ? item.nome.toUpperCase()
+                : ''.toUpperCase();
+              const textData = text.toUpperCase();
+              return itemData.indexOf(textData) > -1;
+          });
+          setFilteredData(newData);
+          console.log(newData)
+          setMonitores(newData);
+          setSearch(text);
+        } else {
+          setFilteredData(monitores);
+          setSearch(text);
+        }
+      };
 
       const renderItem = ({ item }: any) => (
         <View style={styles.container}>
@@ -44,7 +62,11 @@ export const MonitoresPage = () => {
         <View style={styles.container}>
             <Header title={'Monitores'} />
             <Divider />
-            <Search placeholder={'Buscar monitor'} />
+            <Search
+              onChangeText={(text: string) => searchFilterFunction(text)}
+              value={search}
+              placeholder="Buscar monitor"
+            />
             <View style={styles.list}>
                 <FlatList 
                     data={monitores}
