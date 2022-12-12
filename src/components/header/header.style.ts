@@ -1,13 +1,22 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-    title: {
-        textAlign: 'center',
-        fontSize: 20,
-        paddingVertical: 18,
-        marginTop: 34
-    },
-    container: {
-        backgroundColor: '#FFFFFF'
-    },
+  title: {
+    fontSize: 20,
+    paddingVertical: 25,
+  },
+  logo: {
+    width: 50,
+    height: 50,
+    backgroundColor: "#07B361",
+    borderRadius: 50,
+    marginRight: 15,
+  },
+  container: {
+    backgroundColor: "#DBE8D6",
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+  },
 });
