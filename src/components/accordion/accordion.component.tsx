@@ -18,7 +18,7 @@ export const Accordion = (props: ListItemProps) => {
       <List.Accordion
         style={styles.items}
         title={props.name}
-        right={propsRight => <View style={{backgroundColor: "aquamarine", width: 50, height: 20, borderRadius: 10, marginRight: 10}}><Text style={{textAlign: "center"}}>{props.curso}</Text></View>}
+        right={propsRight => <View style={{backgroundColor: "#FAB246", width: 50, height: 20, borderRadius: 10, marginRight: 10}}><Text style={{textAlign: "center"}}>{props.curso}</Text></View>}
         left={propsLeft => <Image style={styles.image} {...propsLeft} source={{uri: props.avatar}} />}>
         <TouchableOpacity  onPress={() => {props.onTapHorarios()}}>
           <View style={styles.row}>
