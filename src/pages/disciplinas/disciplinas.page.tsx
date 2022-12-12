@@ -12,20 +12,29 @@ export const DisciplinasPage = () => {
     const [filteredData, setFilteredData] = useState();
 
     useEffect(() => {
-        fetch('https://aw-monitorando-monitor.herokuapp.com/disciplinas')
-        .then(response => response.json())
+      fetchDisciplinas();
+      return () => {
+
+      }
+    }, []);
+
+      const fetchDisciplinas = () => {
+        const url = 'https://aw-monitorando-monitor.herokuapp.com/disciplinas';
+        fetch(url)
+        .then((response => response.json()))
         .then((data) => {
           setFilteredData(data);
           setDisciplinas(data)
+        }).catch((error) => {
+          console.log(error)
         })
-      }, []);
+      }
 
       const navigation = useNavigation();
 
       const searchFilterFunction = (text: string) => {
         if (text) {
-          const newData = disciplinas.filter(
-            function (item: any) {
+          const newData = disciplinas.filter((item) => {
               const itemData = item.nome
                 ? item.nome.toUpperCase()
                 : ''.toUpperCase();
@@ -33,8 +42,6 @@ export const DisciplinasPage = () => {
               return itemData.indexOf(textData) > -1;
           });
           setFilteredData(newData);
-          console.log(newData)
-          setDisciplinas(newData);
           setSearch(text);
         } else {
           setFilteredData(disciplinas);
@@ -66,7 +73,7 @@ export const DisciplinasPage = () => {
             />
             <View style={styles.list}>
                 <FlatList 
-                    data={disciplinas}
+                    data={filteredData}
                     renderItem={renderItem}
                     keyExtractor={(item) => item.nome}
                 />

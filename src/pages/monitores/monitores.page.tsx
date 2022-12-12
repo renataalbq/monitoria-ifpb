@@ -9,9 +9,9 @@ import { useNavigation } from "@react-navigation/native";
 
 export const MonitoresPage = () => {
     
-    const [monitores, setMonitores] = useState();
+    const [monitores, setMonitores] = useState([]);
     const [search, setSearch] = useState<string>('');
-    const [filteredData, setFilteredData] = useState();
+    const [filteredData, setFilteredData] = useState([]);
 
     const navigation = useNavigation();
 
@@ -24,18 +24,27 @@ export const MonitoresPage = () => {
     };
 
     useEffect(() => {
-      fetch('https://aw-monitorando-monitor.herokuapp.com/alunos')
-        .then(response => response.json())
+      fetchMonitores();
+      return () => {
+
+      }
+    }, []);
+
+      const fetchMonitores = () => {
+        const url = 'https://aw-monitorando-monitor.herokuapp.com/alunos';
+        fetch(url)
+        .then((response => response.json()))
         .then((data) => {
           setFilteredData(data);
           setMonitores(data)
+        }).catch((error) => {
+          console.log(error)
         })
-      }, []);
+      }
 
       const searchFilterFunction = (text: string) => {
-        if (text != null) {
-          const newData = monitores.filter(
-            function (item: any) {
+        if (text) {
+          const newData = monitores.filter((item) => {
               const itemData = item.nome
                 ? item.nome.toUpperCase()
                 : ''.toUpperCase();
@@ -43,7 +52,6 @@ export const MonitoresPage = () => {
               return itemData.indexOf(textData) > -1;
           });
           setFilteredData(newData);
-          setMonitores(newData);
           setSearch(text);
         } else {
           setFilteredData(monitores);
@@ -68,10 +76,9 @@ export const MonitoresPage = () => {
             />
             <View style={styles.list}>
                 <FlatList 
-                    data={monitores}
+                    data={filteredData}
                     renderItem={renderItem}
                     keyExtractor={(item) => item.nome}
-
                 />
             </View>
         </View>
