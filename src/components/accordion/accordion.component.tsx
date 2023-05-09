@@ -18,26 +18,29 @@ export const Accordion = (props: ListItemProps) => {
       <List.Accordion
         style={styles.items}
         title={props.name}
-        right={propsRight => <View style={{backgroundColor: "#FAB246", width: 50, height: 20, borderRadius: 10, marginRight: 10}}><Text style={{textAlign: "center"}}>{props.curso}</Text></View>}
+        titleStyle={{color: '#116000'}}
+        right={propsRight => <View style={styles.badge}><Text style={styles.textBadge}>{props.curso}</Text></View>}
         left={propsLeft => <Image style={styles.image} {...propsLeft} source={{uri: props.avatar}} />}>
-        <TouchableOpacity  onPress={() => {props.onTapHorarios()}}>
+        <TouchableOpacity style={styles.accordionButton}  onPress={() => {props.onTapHorarios()}}>
           <View style={styles.row}>
             <Text style={styles.textButton}>Horários</Text>
             <MaterialIcons
                   name="chevron-right"
                   size={24}
                   color={ '#001a9b'}
+                  style={{paddingTop: 10}}
                 />
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity  onPress={() => {props.onTapContatos()}}>
+        <TouchableOpacity style={styles.accordionButton}  onPress={() => {props.onTapContatos()}}>
           <View style={styles.row}>
             <Text style={styles.textButton}>Contatos</Text>
             <MaterialIcons
                   name="chevron-right"
                   size={24}
-                  col3or={ '#001a9b'}
+                  color={ '#001a9b'}
+                  style={{paddingTop: 10}}
                 />
           </View>
         </TouchableOpacity>

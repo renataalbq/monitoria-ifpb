@@ -12,6 +12,7 @@ export const Search = ({
       <TextInput {...textInputProps}
         style={styles.search}
         underlineColorAndroid="transparent"
+        placeholderTextColor="#adadad"
       />
     );
 }

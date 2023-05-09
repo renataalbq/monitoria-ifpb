@@ -14,13 +14,7 @@ export const styles = StyleSheet.create({
     },
     text: {
         textAlign: 'center',
-        marginTop: 20,
         fontSize: 18,
-        backgroundColor: '#85A97F',
-        width: '70%',
-        borderRadius: 16,
-        padding: 5,
-        alignSelf: 'center',
     },
 
     image: {
@@ -39,18 +33,27 @@ export const styles = StyleSheet.create({
         borderBottomRightRadius: 16,
     },
     curso: {
-        marginLeft: 200,
         fontSize: 15,
-        backgroundColor: '#85A97F',
-        borderRadius: 6,
         textAlign: 'center',
-        width: '20%',
     },
     cursoBg: {
         zIndex: 1,
         position: 'absolute',
         left: 20,
-        top: 90,
+        top: 85,
+        width: '12%',
+        backgroundColor: '#85A97F',
+        borderRadius: 10,
+        marginLeft: 200,
+        padding: 3,
     },
+    nameBg: {
+        backgroundColor: '#85A97F',
+        borderRadius: 20,
+        width: '70%',
+        alignSelf: 'center',
+        marginTop: 15,
+        padding: 6,
+    }
 });
 

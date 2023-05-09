@@ -28,7 +28,9 @@ export const ContatoMonitorPage = () => {
             <View style={styles.cursoBg}>
               <Text style={styles.curso}>{route.params?.curso}</Text>
             </View>
-            <Text style={styles.text}>{route.params?.nome}</Text>
+            <View style={styles.nameBg}>
+              <Text style={styles.text}>{route.params?.nome}</Text>
+            </View>
         </View>
         <View style={styles.list}>
 

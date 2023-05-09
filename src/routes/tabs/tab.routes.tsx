@@ -14,8 +14,8 @@ export const TabRoutes = () => {
           headerShown: false,
           tabBarHideOnKeyboard: true,
           tabBarStyle: {
-            height: 47,
-            paddingBottom: 1,
+            height: 57,
+            paddingBottom: 3,
             backgroundColor: '#66a45c',
           },
           tabBarShowLabel: false,

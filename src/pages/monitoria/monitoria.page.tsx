@@ -17,7 +17,7 @@ export const MonitoriaPage = () => {
     const [monitoria, setMonitoria] = useState<Monitoria[]>();
 
     useEffect(() => {
-      fetch('https://backend-monitor-production.up.railway.app/alunos')
+      fetch('http://localhost:3000/alunos')
       .then(response => response.json())
       .then((data) => {
         setMonitoria(data)
@@ -27,21 +27,32 @@ export const MonitoriaPage = () => {
     return (
       <SafeAreaView style={styles.container}>
         <View style={styles.list}>
-        {monitoria?.map(monitor => (
+        {monitoria?.map((monitor, index) => (
           monitor.nome === route.params?.nome ? (
           <React.Fragment key={monitor.matricula}>
-            <Text style={styles.text}>{monitor?.nome}</Text>
-            <Text style={styles.text}>Disciplina: {monitor?.disciplina}</Text>
-            <Text style={styles.text}>Sala: {monitor?.sala}</Text>
-            <Text style={styles.text}>{monitor?.diasDaSemana[0]}</Text>
-            <Text style={styles.text}>{monitor?.horario[0]}</Text>
-
-            <Text style={styles.text}>{monitor?.diasDaSemana[1]}</Text>
-            <Text style={styles.text}>{monitor?.horario[1]}</Text>
-            
-            <Text style={styles.text}>{monitor?.diasDaSemana[2]}</Text>
-            <Text style={styles.text}>{monitor?.horario[2]}</Text>
-
+            <View style={styles.name}>
+              <Text style={styles.text}>{monitor?.nome}</Text>
+            </View>
+           <View style={styles.row}>
+            <Text style={styles.titleText} >Disciplina: </Text>
+            <Text style={styles.text}>{monitor?.disciplina}</Text>
+           </View>
+           <View style={styles.row}>
+            <Text style={styles.titleText}>Sala: </Text>
+            <Text style={styles.text}>{monitor?.sala}</Text>
+           </View>
+           <View style={styles.horariosWrapper}>
+            <View style={styles.dias}>
+              <Text style={styles.textDias}>{monitor?.diasDaSemana[0]}</Text>
+              <Text style={styles.textDias}>{monitor?.diasDaSemana[1]}</Text>
+              <Text style={styles.textDias}>{monitor?.diasDaSemana[2]}</Text>
+            </View>
+            <View style={styles.dias}>
+              <Text style={styles.textHorarios}>{monitor?.horario[0]}</Text>
+              <Text style={styles.textHorarios}>{monitor?.horario[1]}</Text>
+              <Text style={styles.textHorarios}>{monitor?.horario[2]}</Text>
+            </View>
+          </View>
           </React.Fragment>
           ) : <></>
         ))}

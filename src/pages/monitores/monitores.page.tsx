@@ -31,7 +31,7 @@ export const MonitoresPage = () => {
     }, []);
 
       const fetchMonitores = () => {
-        const url = 'https://aw-monitorando-monitor.herokuapp.com/alunos';
+        const url = 'http://localhost:3000/alunos';
         fetch(url)
         .then((response => response.json()))
         .then((data) => {

@@ -19,7 +19,7 @@ export const DisciplinasPage = () => {
     }, []);
 
       const fetchDisciplinas = () => {
-        const url = 'https://aw-monitorando-monitor.herokuapp.com/disciplinas';
+        const url = 'http://localhost:3000/disciplinas';
         fetch(url)
         .then((response => response.json()))
         .then((data) => {

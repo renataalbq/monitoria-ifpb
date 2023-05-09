@@ -9,7 +9,7 @@ export const InfoDisciplinaPage = () => {
     const [monitoria, setMonitoria] = useState<Monitoria[]>();
 
     useEffect(() => {
-      fetch('https://backend-monitor-production.up.railway.app/alunos')
+      fetch('http://localhost:3000/alunos')
       .then(response => response.json())
       .then((data) => {
         setMonitoria(data)

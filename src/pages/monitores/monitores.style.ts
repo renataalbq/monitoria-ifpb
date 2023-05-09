@@ -8,12 +8,4 @@ export const styles = StyleSheet.create({
         backgroundColor: "#FFFFFF",
         paddingVertical: 24,
     },
-    textInputStyle: {
-        height: 40,
-        borderWidth: 1,
-        paddingLeft: 20,
-        margin: 5,
-        borderColor: '#009688',
-        backgroundColor: '#FFFFFF',
-    },
 });
